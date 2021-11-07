@@ -1,0 +1,376 @@
+/*
+    Author: Enrique Sánchez Vicente
+*/
+
+*{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+div#bastidor{
+
+    width: 750px;
+    height: 790px;
+    margin: auto;
+
+    margin-top: 30px;
+
+    background-color: rgb(241, 229, 59);
+    border: solid #1d181d 10px;
+    border-radius: 20px;
+
+}
+
+div.marcoLogo{
+
+    position: relative;
+
+    float: left;
+
+    width: 271px;
+    height: 60px;
+
+    margin-top: 20px;
+    margin-left: 60px;
+
+    border: groove #3a0c6e 15px;
+}
+
+div.marcoLogoLuminoso{
+
+    position: relative;
+
+    float: left;
+
+    width: 271px;
+    height: 60px;
+
+    margin-top: 20px;
+    margin-left: 60px;
+
+    border: groove #dd21f6 15px;
+
+    box-shadow: 0 1px 20px 10px #dd21f6;
+}
+
+div#panelBanco{
+
+    width: 220px;
+    height: 60px;
+
+    background-color: rgb(200, 200, 155);
+    border: groove #a70262 15px;
+
+    margin-top: 20px;
+    float: right;
+    margin-right: 20px;
+    
+    display: flex;
+    align-items: center;
+
+
+}
+
+p#letrasBanco{
+
+    vertical-align:auto;
+    line-height: -20px;
+    text-shadow: rgb(0, 0, 0) 4px 4px;
+    margin: auto;
+    margin-top: -5px;
+    color: rgb(246, 250, 0);
+    font-family: 'Fruktur', cursive;
+    font-size: 50px;
+}
+
+div#tablero{
+
+    width: 550px;
+    height: 200px;
+    margin: auto;
+
+    margin-top: 130px;
+
+    background-color: rgb(92, 5, 92);
+    border: groove #a70262 15px;
+    
+
+    display: flex;
+    align-items: center;
+
+}
+
+div.marcoRodillo{
+
+
+
+    width: 110px;
+    height: 110px;
+
+    margin: auto;
+
+    border: groove #e9c528 13px;
+    border-spacing: 0px;
+
+    padding: 0px;
+ 
+    overflow:hidden;
+
+}
+
+div.marcoRodilloPremio{
+
+
+
+    width: 110px;
+    height: 110px;
+
+    margin: auto;
+
+    border: groove #ff1fec 13px;
+    box-shadow: 0 1px 20px 10px #fffb00;
+    border-spacing: 0px;
+
+    padding: 0px;
+ 
+    overflow:hidden;
+
+}
+
+div.marcoRodilloRet{
+
+    width: 110px;
+    height: 110px;
+
+    margin: auto;
+
+    border: groove #00e1ff 13px;
+    border-spacing: 0px;
+
+    padding: 0px;
+ 
+    overflow:hidden;
+    
+}
+
+img.rodillo{
+
+    top: -2px;
+    position: relative;
+ 
+}
+
+form#botonera{
+
+    position: relative;
+    width: 700px;
+    height: 70px;
+
+    margin: auto;
+    margin-top: 20px;
+
+    background-color: rgb(128, 119, 0);
+    border: groove #464347 15px;
+    
+
+    display: flex;
+    align-items: center;
+
+}
+
+button.boton{
+
+    margin: auto;
+    background: #9D13B0;
+    background-image: -webkit-linear-gradient(top, #9D13B0, #FFFFFF);
+    background-image: -moz-linear-gradient(top, #9D13B0, #FFFFFF);
+    background-image: -ms-linear-gradient(top, #9D13B0, #FFFFFF);
+    background-image: -o-linear-gradient(top, #9D13B0, #FFFFFF);
+    background-image: -webkit-gradient(to bottom, #9D13B0, #FFFFFF);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    height: 0;
+    line-height: 0;
+    color: #000000;
+    font-family: Helvetica;
+    width: 115px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 16px;
+    -webkit-box-shadow: 0 1px 57px 24px #FF00E8;
+    -moz-box-shadow: 0 1px 57px 24px #FF00E8;
+    box-shadow: 0 1px 20px 5px #FF00E8;
+    text-shadow: 0 -3px 15px #C50AB4;
+    border: ridge #6B156C 10px;
+    text-decoration: none;
+    
+    cursor: grabbing;
+    text-align: center;
+
+}
+
+button.boton:hover{
+    border: ridge #583959 10px;
+    text-shadow: 0 -3px 15px #e7d806;
+    box-shadow: 0 1px 20px 5px #e9fa02;
+    background: #B9FF01;
+    background-image: -webkit-linear-gradient(top, #B9FF01, #FFD200);
+    background-image: -moz-linear-gradient(top, #B9FF01, #FFD200);
+    background-image: -ms-linear-gradient(top, #B9FF01, #FFD200);
+    background-image: -o-linear-gradient(top, #B9FF01, #FFD200);
+    background-image: -webkit-gradient(to bottom, #B9FF01, #FFD200);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+
+button.botonRet{
+
+    margin: auto;
+    background: #11cebe;
+    background-image: -webkit-linear-gradient(top, #11cebe, #FFFFFF);
+    background-image: -moz-linear-gradient(top, #11cebe, #FFFFFF);
+    background-image: -ms-linear-gradient(top, #11cebe, #FFFFFF);
+    background-image: -o-linear-gradient(top, #11cebe, #FFFFFF);
+    background-image: -webkit-gradient(to bottom, #11cebe, #FFFFFF);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    height: 0;
+    line-height: 0;
+    color: #000000;
+    font-family: Helvetica;
+    width: 115px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 16px;
+    -webkit-box-shadow: 0 1px 57px 24px #11cebe;
+    -moz-box-shadow: 0 1px 57px 24px #11cebe;
+    box-shadow: 0 1px 20px 5px #11cebe;
+    text-shadow: 0 -3px 15px #11cebe;
+    border: ridge #168b81 10px;
+    text-decoration: none;
+    
+    cursor: grabbing;
+    text-align: center;
+
+}
+
+
+
+button#btnBet{
+    width: 200px;
+}
+
+button#btnRet1, button#btnRet2, button#btnRet3{
+    font-size: 35px;
+    width: 60px;
+    padding-left: 9px;
+    text-align: center;
+}
+
+button#btnIns{
+    width: 135px;
+}
+
+button#btnAp{
+    width: 130px;
+}
+
+
+div#tablaPremios{
+
+    position: relative;
+
+    width: 600px;
+    height: 170px;
+
+    margin: auto;
+    margin-top: 20px;
+    padding:0px;
+
+    background-color: rgb(128, 119, 0);
+    border-radius: 10px;
+
+    display:table;
+    align-items:center;
+
+    border-collapse: separate;
+    border-spacing: 7px;
+
+
+}
+
+.tr {
+    display: table-row;
+}
+.td {
+    display: table-cell;
+}
+
+div.premiosItem{
+
+    position: relative;
+
+    width: 170px;
+    height: 60px;
+    padding-left: 4px;
+
+    border: solid #353535 7px;
+    border-radius: 4px;
+    background-color: rgb(138, 72, 124);
+
+    align-items:baseline;
+    
+}
+
+div.premiosItemIluminado{
+
+    position: relative;
+
+    width: 170px;
+    height: 60px;
+    padding-left: 4px;
+
+    border: solid #353535 7px;
+    border-radius: 4px;
+    background-color: rgb(16, 227, 255);
+
+    box-shadow: 0 1px 20px 10px #15bdff;
+
+    align-items:baseline;
+    
+}
+
+img.imagenPremios{
+    
+    border: solid #75008a 3px;
+    margin-top: 5px;
+}
+
+p.txtPremios{
+
+    position: absolute;
+
+    top: 8px;
+    left: 57px;
+
+    width: 117px;
+    
+    text-align: center;
+
+    text-shadow: black 2px 2px;
+    margin: auto;
+    font-family: 'Fruktur', cursive;
+    font-size: 33px;
+
+}
+
+
+
+
+
