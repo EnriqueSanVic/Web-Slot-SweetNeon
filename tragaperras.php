@@ -52,6 +52,7 @@
         public $modoRet;
         public $contRet;
         public $retencionDenegada;
+        private $denegarProxRet;
 
         public $hayPremio;
         public $valorPremio;
@@ -81,6 +82,7 @@
             $this->modoRet = false;
             $this->contRet = 0;
             $this->retencionDenegada = false;
+            $this->denegarProxRet  = false;
 
             $this->hayPremio = false;
             $this->valorPremio = 0.00;
@@ -200,7 +202,10 @@
                 //se borran las retenciones el estado
                 if(!$this->modoRet){
                     $this->protocoloSinRet();
+                }else{
+                    $this->denegarProxRet  = true;//denegará la proxima retención siempre
                 }
+                
                 
                 //se disponen las varibles y la flag para que el front lo refleje en la tirada pero no sea inmediato al cargar el html
                 $this->hayPremio = true;
@@ -401,6 +406,11 @@
         }
 
         private function evaluarRet($porcentaje){
+
+            if($this->denegarProxRet){ //se deniega siempre si la flag está true.
+                $this->denegarProxRet  = false;
+                return false;
+            }
 
             $rand = random_int(0, 100);
 
