@@ -1,8 +1,15 @@
 <?php
 
+    /*
+        Esta clase sirve para gestionar los ficheros de guardado de los usuarios
+        Los ficheros tienen el formato ip_usuario.us 
+        Se encarga de guardarlos en el directorio ./users/ y dentro almacena el estado del objeto 
+        tragaperras serializado de cada usuario.
+    */
+
     class GestorUsuarios{
 
-        const CARACTERES_PROIVIDOS = array("\\", "/", ":", "*", "?", '"', ">", "<", "|");
+        const CARACTERES_PROHIBIDOS = array("\\", "/", ":", "*", "?", '"', ">", "<", "|");
 
         const DIRECTORIO = "./users/";
 
@@ -11,8 +18,9 @@
 
         function __construct($ip){
 
-            for ($i=0; $i < count(self::CARACTERES_PROIVIDOS); $i++) { 
-                $ip = str_replace(self::CARACTERES_PROIVIDOS[$i], "", $ip);
+            //hay que asegurarse de que la ip no contiene caracteres 
+            for ($i=0; $i < count(self::CARACTERES_PROHIBIDOS); $i++) { 
+                $ip = str_replace(self::CARACTERES_PROHIBIDOS[$i], "", $ip);
             }
             //en este punto la ip no tendra carazteres prohividos para poderguardar un fichero
             $this->ip = $ip;

@@ -60,6 +60,8 @@
         
         function __construct(){
 
+            //Se inicicializan todas las variables en el constructor
+
             $this->banco = 20.00;
             $this->apuesta = 0;
             $this->balance = 0;

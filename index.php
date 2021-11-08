@@ -51,13 +51,10 @@
         $traga->cambiarApuesta();
         $isCambioApuesta = true;
     }else if(isset($_POST["btnRet1"])){
-        //echo("btnRet1<br>");
         $traga->ActRetenciones(0);
     }else if(isset($_POST["btnRet2"])){
-        //echo("btnRet2<br>");
         $traga->ActRetenciones(1);
     }else if(isset($_POST["btnRet3"])){
-        //echo("btnRet3<br>");
         $traga->ActRetenciones(2);
     }
 
@@ -162,6 +159,8 @@
         ?>
 
     </style>
+
+    <!--    SCRIPT PARA PASAR VARIABLES DEL PHP AL JAVASCRIPT  -->
 
     <script type="text/javascript">
 
@@ -348,6 +347,7 @@
 
     $traga->intercambiarTiradas();
 
+    //Se guarda el estado en la sesión y en el fichero despues de cada recarga
     guardarEstado($traga, $gestorUsuario);
 
     function guardarEstado($traga, $gestorUsuario){
