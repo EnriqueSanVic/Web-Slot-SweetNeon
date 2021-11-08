@@ -8,14 +8,32 @@
     */
 
     include("./tragaperras.php");
+    include("./gestorUsuarios.php");
 
     session_start();
     //session_destroy();
+
+    //recoge la ip del usuario
+    $ipUsuario = $_SERVER['REMOTE_ADDR'];
+
+    //crea un gestor de usuarios con la ip
+    $gestorUsuario = new GestorUsuarios($ipUsuario);
     
-    //cargamos el objeto tragaperras
+    //cargamos el objeto tragaperras de la sesión si existe y si no miramos los ficheros de guardado
     if(!isset($_SESSION["traga"])){
-        $traga = new Tragaperras(); 
+
+        //mira si existe el archivo en el directorio de guardado
+        if($gestorUsuario->existe()){
+            //recupera el objeto tragaperras del fichero
+            $traga = unserialize($gestorUsuario->recuperar());
+        }else{
+            //si no lo crea nuevo, en este caso es la primera conexión del cliente
+            $traga = new Tragaperras(); 
+        }
+
+        
     }else{
+        //si se puede recuperar de la sesión se prioriza a una lectura de fichero para agilizar el proceso
         $traga = unserialize($_SESSION["traga"]);
     }
 
@@ -330,14 +348,19 @@
 
     $traga->intercambiarTiradas();
 
-    
+    guardarEstado($traga, $gestorUsuario);
 
-    function guardarEstado($traga){
-        $_SESSION["traga"] = serialize($traga);
+    function guardarEstado($traga, $gestorUsuario){
+
+        //rerializa el objeto
+        $tragaSerializada = serialize($traga);
+
+        //lo guarda en la sesión para un acceso rápido en la siguiente peticion
+        $_SESSION["traga"] = $tragaSerializada;
+        //lo guarda en el fichero del usuario para conservar el estado siempre aunque se interrumpiera la conexion
+        $gestorUsuario->guardar($tragaSerializada);
+        
     }
-
-
-    guardarEstado($traga);
 ?>
 
 
