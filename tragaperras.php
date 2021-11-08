@@ -409,7 +409,7 @@
         private function evaluarRet($porcentaje){
 
             if($this->denegarProxRet){ //se deniega siempre si la flag está true.
-                echo("retencion forzada");
+                //echo("retencion forzada");
                 $this->denegarProxRet  = false;
                 return false;
             }
