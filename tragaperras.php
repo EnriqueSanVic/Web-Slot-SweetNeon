@@ -202,9 +202,10 @@
                 //se borran las retenciones el estado
                 if(!$this->modoRet){
                     $this->protocoloSinRet();
-                }else{
-                    $this->denegarProxRet  = true;//denegará la proxima retención siempre
                 }
+                
+                $this->denegarProxRet  = true;//denegará la proxima retención siempre
+                
                 
                 
                 //se disponen las varibles y la flag para que el front lo refleje en la tirada pero no sea inmediato al cargar el html
@@ -274,7 +275,7 @@
             //se retiene en un % de las veces para la retencion simple
             }else if($this->modoRet && $this->contRet > 1){
                 //las retenciones no tontempladas arriba, es decir las menos comunes tienen una provabilidad menor de conservarse
-                if($this->evaluarRet(self::RETENCION_SIMPLE)){
+                if(!$this->evaluarRet(self::RETENCION_SIMPLE)){
                     $this->protocoloFinRetenciones();
                 }
             }
@@ -408,6 +409,7 @@
         private function evaluarRet($porcentaje){
 
             if($this->denegarProxRet){ //se deniega siempre si la flag está true.
+                echo("retencion forzada");
                 $this->denegarProxRet  = false;
                 return false;
             }
