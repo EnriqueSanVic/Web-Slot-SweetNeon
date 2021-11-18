@@ -2,9 +2,14 @@
 <?php
 
     /*
+        
+
         Author: Enrique Sánchez Vicente
-        Para ejecutar correctamente debe de estar todo el arbol de directorios en la raiz del servidor, 
-        no como una subcarpeta.
+
+        EJECUTAR CON EL SONIDO ACTIVADO
+
+        -Para ejecutar correctamente debe de estar todo el arbol de directorios volcado en la raiz del servidor, 
+         no como una subcarpeta.
     */
 
     include("./tragaperras.php");
@@ -205,7 +210,7 @@
         <div id="bastidor">
 
             <div id="logo" class="marcoLogo">
-                <img id="logo" src="../img/logo.png"/>
+                <img id="logo" src="./img/logo.png"/>
             </div>
 
             <div id="panelBanco">
@@ -217,15 +222,15 @@
             <div id="tablero">
 
                 <div id="rodillo1" class="marcoRodillo">
-                    <img id="im1" class="rodillo" src="../img/rodillo.png"/>
+                    <img id="im1" class="rodillo" src="./img/rodillo.png"/>
                 </div>
 
                 <div id="rodillo2" class="marcoRodillo">
-                    <img id="im2" class="rodillo" src="../img/rodillo.png"/>
+                    <img id="im2" class="rodillo" src="./img/rodillo.png"/>
                 </div>
 
                 <div id="rodillo3" class="marcoRodillo">
-                    <img id="im3" class="rodillo" src="../img/rodillo.png"/>
+                    <img id="im3" class="rodillo" src="./img/rodillo.png"/>
 
                 </div>
 

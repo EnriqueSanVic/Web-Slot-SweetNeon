@@ -220,7 +220,7 @@ function evaluarHabilitacion(){
             
 
             sonidoRet = setInterval(function(){
-                new Audio('../sounds/retencion.mp3').play();
+                new Audio('./sounds/retencion.mp3').play();
                 clearInterval(sonidoRet); 
             }, 7);
 
@@ -241,13 +241,13 @@ function evaluarHabilitacion(){
 }
 
 function sonidoRetencionDenegada(){
-    new Audio('../sounds/fallo.mp3').play();
+    new Audio('./sounds/fallo.mp3').play();
 }
 
 function sumarPremio(){
 
     
-    new Audio('../sounds/premio.mp3').play();
+    new Audio('./sounds/premio.mp3').play();
 
     document.getElementById(CAJONES[window.parent.figura1]).className = "premiosItemIluminado td";
 
@@ -366,7 +366,7 @@ function cambiarAspectoElementosRetencion(rodillo, boton){
 
 function sonidoRodillo(){
     
-    new Audio('../sounds/golpe_rodillo.mp3').play();
+    new Audio('./sounds/golpe_rodillo.mp3').play();
 }
 
 function sonidoCambioApuesta(apuesta){
@@ -374,15 +374,15 @@ function sonidoCambioApuesta(apuesta){
 
     if(apuesta==0){
 
-        new Audio('../sounds/apuesta1.mp3').play();
+        new Audio('./sounds/apuesta1.mp3').play();
 
     }else if(apuesta==1){
 
-        new Audio('../sounds/apuesta2.mp3').play();
+        new Audio('./sounds/apuesta2.mp3').play();
 
     }else if(apuesta==2){
 
-        new Audio('../sounds/apuesta3.mp3').play();
+        new Audio('./sounds/apuesta3.mp3').play();
 
     }
 
