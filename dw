@@ -1,0 +1,96 @@
+[33mcommit f764e4b46c5ab5b3d79607908f2e2580e4008457[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Enrique Sánchez Vicente <82119845+EnriqueSanVic@users.noreply.github.com>
+Date:   Mon Nov 8 19:12:56 2021 +0100
+
+    v1.4
+    
+    Final version.
+
+[1mdiff --git a/gestorUsuarios.php b/gestorUsuarios.php[m
+[1mindex 1d47c8a..cb95e07 100644[m
+[1m--- a/gestorUsuarios.php[m
+[1m+++ b/gestorUsuarios.php[m
+[36m@@ -1,8 +1,15 @@[m
+ <?php[m
+ [m
+[32m+[m[32m    /*[m
+[32m+[m[32m        Esta clase sirve para gestionar los ficheros de guardado de los usuarios[m
+[32m+[m[32m        Los ficheros tienen el formato ip_usuario.us[m[41m [m
+[32m+[m[32m        Se encarga de guardarlos en el directorio ./users/ y dentro almacena el estado del objeto[m[41m [m
+[32m+[m[32m        tragaperras serializado de cada usuario.[m
+[32m+[m[32m    */[m
+[32m+[m
+     class GestorUsuarios{[m
+ [m
+[31m-        const CARACTERES_PROIVIDOS = array("\\", "/", ":", "*", "?", '"', ">", "<", "|");[m
+[32m+[m[32m        const CARACTERES_PROHIBIDOS = array("\\", "/", ":", "*", "?", '"', ">", "<", "|");[m
+ [m
+         const DIRECTORIO = "./users/";[m
+ [m
+[36m@@ -11,8 +18,9 @@[m
+ [m
+         function __construct($ip){[m
+ [m
+[31m-            for ($i=0; $i < count(self::CARACTERES_PROIVIDOS); $i++) { [m
+[31m-                $ip = str_replace(self::CARACTERES_PROIVIDOS[$i], "", $ip);[m
+[32m+[m[32m            //hay que asegurarse de que la ip no contiene caracteres[m[41m [m
+[32m+[m[32m            for ($i=0; $i < count(self::CARACTERES_PROHIBIDOS); $i++) {[m[41m [m
+[32m+[m[32m                $ip = str_replace(self::CARACTERES_PROHIBIDOS[$i], "", $ip);[m
+             }[m
+             //en este punto la ip no tendra carazteres prohividos para poderguardar un fichero[m
+             $this->ip = $ip;[m
+[1mdiff --git a/index.php b/index.php[m
+[1mindex a539b99..1ce1149 100644[m
+[1m--- a/index.php[m
+[1m+++ b/index.php[m
+[36m@@ -51,13 +51,10 @@[m
+         $traga->cambiarApuesta();[m
+         $isCambioApuesta = true;[m
+     }else if(isset($_POST["btnRet1"])){[m
+[31m-        //echo("btnRet1<br>");[m
+         $traga->ActRetenciones(0);[m
+     }else if(isset($_POST["btnRet2"])){[m
+[31m-        //echo("btnRet2<br>");[m
+         $traga->ActRetenciones(1);[m
+     }else if(isset($_POST["btnRet3"])){[m
+[31m-        //echo("btnRet3<br>");[m
+         $traga->ActRetenciones(2);[m
+     }[m
+ [m
+[36m@@ -163,6 +160,8 @@[m
+ [m
+     </style>[m
+ [m
+[32m+[m[32m    <!--    SCRIPT PARA PASAR VARIABLES DEL PHP AL JAVASCRIPT  -->[m
+[32m+[m
+     <script type="text/javascript">[m
+ [m
+         var isBet = <?php if($isJugando){echo("true");}else{echo("false");}; ?>;[m
+[36m@@ -348,6 +347,7 @@[m
+ [m
+     $traga->intercambiarTiradas();[m
+ [m
+[32m+[m[32m    //Se guarda el estado en la sesión y en el fichero despues de cada recarga[m
+     guardarEstado($traga, $gestorUsuario);[m
+ [m
+     function guardarEstado($traga, $gestorUsuario){[m
+[1mdiff --git a/tragaperras.php b/tragaperras.php[m
+[1mindex afb10dc..d218858 100644[m
+[1m--- a/tragaperras.php[m
+[1m+++ b/tragaperras.php[m
+[36m@@ -60,6 +60,8 @@[m
+         [m
+         function __construct(){[m
+ [m
+[32m+[m[32m            //Se inicicializan todas las variables en el constructor[m
+[32m+[m
+             $this->banco = 20.00;[m
+             $this->apuesta = 0;[m
+             $this->balance = 0;[m
+[1mdiff --git a/users/1.us b/users/1.us[m
+[1mindex 893c5c4..1772801 100644[m
+Binary files a/users/1.us and b/users/1.us differ
+[1mdiff --git a/users/172.16.0.116.us b/users/172.16.0.116.us[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ed0f98e[m
+Binary files /dev/null and b/users/172.16.0.116.us differ
